@@ -129,6 +129,8 @@ export class RiseV2Txs implements IRiseV2CoinCodecTxs {
         tx.senderPubData = Buffer.concat([new Buffer([1]), kp.publicKey]) as Buffer & As<'publicKey'>;
       }
     }
+    tx.senderPublicKey = tx.tx.senderPubData;
+    tx.signature = tx.signatures[0];
     tx.signatures = tx.signatures || [];
     tx.signatures.push(this.calcSignature(tx, kp));
     tx.id = this.identifier(tx);
