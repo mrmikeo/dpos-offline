@@ -130,9 +130,10 @@ export class RiseV2Txs implements IRiseV2CoinCodecTxs {
       }
     }
     tx.senderPublicKey = tx.senderPubData;
-    tx.signature = tx.signatures[0];
-    tx.signatures = tx.signatures || [];
-    tx.signatures.push(this.calcSignature(tx, kp));
+    //tx.signature = tx.signatures[0];
+    //tx.signatures = tx.signatures || [];
+    //tx.signatures.push(this.calcSignature(tx, kp));
+    tx.signature = this.calcSignature(tx, kp);
     tx.id = this.identifier(tx);
     return tx;
   }
