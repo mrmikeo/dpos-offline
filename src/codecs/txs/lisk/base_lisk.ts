@@ -124,7 +124,7 @@ export abstract class BaseLiskCodec<T> implements IBaseTxCodec<LiskTransaction<T
   public transform(from: IBaseTx): LiskTransaction<T> {
     const toRet: LiskTransaction<T> = {
       amount            : 0,
-      asset             : null,
+      asset             : {},
       fee               : null,
       id                : null,
       recipientId       : null,
